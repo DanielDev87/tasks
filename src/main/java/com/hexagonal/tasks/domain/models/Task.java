@@ -6,14 +6,14 @@ public class Task {
     private Long id;
     private String title;
     private String description;
-    private LocalDateTime crationDate;
+    private LocalDateTime creationDate;
     private boolean completed;
 
     public Task(Long id, String title, String description, boolean completed, LocalDateTime creationDate){
         this.id = id;
         this.title= title;
         this.description= description;
-        this.crationDate=creationDate;
+        this.creationDate=creationDate;
         this.completed= completed;
     }
 
@@ -41,12 +41,12 @@ public class Task {
         this.description = description;
     }
 
-    public LocalDateTime getCrationDate() {
-        return crationDate;
+    public LocalDateTime getCreationDate() {
+        return creationDate;
     }
 
-    public void setCrationDate(LocalDateTime crationDate) {
-        this.crationDate = crationDate;
+    public void setCreationDate(LocalDateTime creationDate) {
+        this.creationDate = creationDate;
     }
 
     public boolean isCompleted() {

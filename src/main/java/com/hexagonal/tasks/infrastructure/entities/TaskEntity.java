@@ -2,8 +2,11 @@ package com.hexagonal.tasks.infrastructure.entities;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.hexagonal.tasks.domain.models.Task;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +20,8 @@ public class TaskEntity {
     private Long id;
     private String title;
     private String description;
+    @CreationTimestamp
+    @Column(updatable = false)
     private LocalDateTime creationDate;
     private boolean completed;
 
@@ -36,7 +41,7 @@ public class TaskEntity {
 
 
     public static TaskEntity fromDomainModel (Task task) {
-        return new TaskEntity(task.getId(), task.getTitle(), task.getDescription(), task.getCrationDate(), task.isCompleted());
+        return new TaskEntity(task.getId(), task.getTitle(), task.getDescription(), task.getCreationDate(), task.isCompleted());
     }
 
     public Task toDomainModel(){
